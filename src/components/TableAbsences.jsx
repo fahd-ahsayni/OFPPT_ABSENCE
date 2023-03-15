@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import "./styles/table-style.css";
-import Tbody from "./table/Tbody";
 import Pagination from "./table/Pagination";
 import { Typography } from "@material-tailwind/react";
 
@@ -46,7 +44,7 @@ export default function TableAbsences() {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
-  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+  const totalPages = 1;
 
   // Change page number
   const handlePageChange = (pageNumber) => {
@@ -80,7 +78,7 @@ export default function TableAbsences() {
         </td>
         <td>{item.contact}</td>
         <td>
-          <span className="py-1.5 px-5 rounded-xl  text-sm bg-red-100 text-red-700">
+          <span className="py-1.5 px-5 rounded-xl  text-sm bg-red-50 text-red-700">
             {item.status}
           </span>
         </td>
