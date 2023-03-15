@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Pagination from "./table/Pagination";
 import { Typography } from "@material-tailwind/react";
+import { FiSearch } from "react-icons/fi";
 
 export default function TableAbsences() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -117,18 +118,18 @@ export default function TableAbsences() {
 
   return (
     <div className="overflow-x-auto w-full">
-      <div className="w-[350px]">
+      <div className="w-[350px] px-1 py-2 mb-2">
         <label
           htmlFor="search"
           className="block text-sm font-medium text-gray-700"
         >
-          Quick search
+          Trouver le stagiaire
         </label>
         <div className="relative mt-1 flex items-center">
           <input
             type="text"
-            placeholder="Search"
-            className="block w-full rounded-md border-gray-300 pr-12 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            placeholder="Rechercher"
+            className="block w-full rounded-md border-gray-300 pr-12 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
             value={searchTerm}
             name="search"
             id="search"
@@ -136,18 +137,12 @@ export default function TableAbsences() {
           />
           <div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
             <kbd className="inline-flex items-center rounded border border-gray-200 px-2 font-sans text-sm font-medium text-gray-400">
-              ⌘K
+              <FiSearch />
             </kbd>
           </div>
         </div>
-        <div>
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            handlePageChange={handlePageChange}
-          />
-        </div>
       </div>
+        
       <table className="table w-full">
         <thead>
           <tr>
@@ -161,6 +156,13 @@ export default function TableAbsences() {
         </thead>
         <tbody>{renderTableRows()}</tbody>
       </table>
+      <div className="w-full flex justify-end">
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            handlePageChange={handlePageChange}
+          />
+        </div>
     </div>
   );
 }
