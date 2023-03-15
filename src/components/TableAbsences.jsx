@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./styles/table-style.css";
 import Tbody from "./table/Tbody";
 import Pagination from "./table/Pagination";
-
+import { Typography } from "@material-tailwind/react";
 
 export default function TableAbsences() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -57,32 +57,35 @@ export default function TableAbsences() {
     return currentItems.map((item) => (
       <tr key={item.id}>
         <td>
-        <label>
+          <label>
             <input type="checkbox" className="checkbox" />
           </label>
         </td>
         <td>{item.id}</td>
         <td>
-        <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-3">
             <div className="avatar">
               <div className="mask mask-squircle w-12 h-12">
-                <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                <img
+                  src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80"
+                  alt="Avatar Tailwind CSS Component"
+                />
               </div>
             </div>
             <div>
-              <div className="font-bold">{item.name}</div>
+              <Typography variant="h6" className="f">{item.name}</Typography>
               <div className="text-sm opacity-50">United States</div>
             </div>
           </div>
         </td>
         <td>{item.contact}</td>
         <td>
-          <span className="py-1.5 px-5 rounded-xl  text-sm bg-red-100 text-red-700">{item.status}</span>
+          <span className="py-1.5 px-5 rounded-xl  text-sm bg-red-100 text-red-700">
+            {item.status}
+          </span>
         </td>
         <td>
-          <button>
-            details
-          </button>
+          <button>details</button>
         </td>
       </tr>
     ));
