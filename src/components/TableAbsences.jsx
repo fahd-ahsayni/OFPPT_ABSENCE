@@ -98,7 +98,7 @@ export default function TableAbsences() {
           </span>
         </td>
         <td>
-          <span className={`py-1.5 px-5 rounded-xl text-sm ${item.status === "Absent" ? "bg-red-300 text-red-900" : "bg-green-300 text-green-900"}`}>
+          <span className={`inline-block whitespace-nowrap rounded-[0.27rem]  px-[0.65em] pt-[0.35em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none ${item.status === "Absent" ? "bg-[#FAE5E9] text-[#B0233A]" : "bg-[#D6FAE4] text-[#0E7537]"}`}>
             {item.status}
           </span>
         </td>
