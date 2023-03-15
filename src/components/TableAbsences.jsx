@@ -5,7 +5,7 @@ import { Typography } from "@material-tailwind/react";
 export default function TableAbsences() {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(10);
+  const [itemsPerPage] = useState(2);
 
   const data = [
     {
@@ -98,7 +98,13 @@ export default function TableAbsences() {
           </span>
         </td>
         <td>
-          <span className={`inline-block whitespace-nowrap rounded-[0.27rem]  px-[0.65em] pt-[0.35em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none ${item.status === "Absent" ? "bg-[#FAE5E9] text-[#B0233A]" : "bg-[#D6FAE4] text-[#0E7537]"}`}>
+          <span
+            className={`inline-block whitespace-nowrap rounded-[0.27rem]  px-[0.65em] pt-[0.35em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none ${
+              item.status === "Absent"
+                ? "bg-[#FAE5E9] text-[#B0233A]"
+                : "bg-[#D6FAE4] text-[#0E7537]"
+            }`}
+          >
             {item.status}
           </span>
         </td>
@@ -111,15 +117,28 @@ export default function TableAbsences() {
 
   return (
     <div className="overflow-x-auto w-full">
-      <div className="flex justify-between items-center mb-4">
-        <div>
+      <div className="w-[350px]">
+        <label
+          htmlFor="search"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Quick search
+        </label>
+        <div className="relative mt-1 flex items-center">
           <input
             type="text"
             placeholder="Search"
-            className="px-2 py-1 border rounded"
+            className="block w-full rounded-md border-gray-300 pr-12 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             value={searchTerm}
+            name="search"
+            id="search"
             onChange={(e) => setSearchTerm(e.target.value)}
           />
+          <div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
+            <kbd className="inline-flex items-center rounded border border-gray-200 px-2 font-sans text-sm font-medium text-gray-400">
+              ⌘K
+            </kbd>
+          </div>
         </div>
         <div>
           <Pagination
