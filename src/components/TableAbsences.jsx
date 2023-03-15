@@ -11,25 +11,37 @@ export default function TableAbsences() {
     {
       id: 1,
       name: "Fahd AHSAYNI",
-      contact: "fahd.ahsayni@ofppt-edu.ma",
+      contact: {
+        mobile: "+212 649-781587",
+        email: "fahd.ahsayni@ofppt-edu.ma",
+      },
       status: "Absent",
     },
     {
       id: 2,
       name: "Meryem LFKIR",
-      contact: "Meryem.lfkir@ofppt-edu.ma",
+      contact: {
+        mobile: "+212 649-781587",
+        email: "fahd.ahsayni@ofppt-edu.ma",
+      },
       status: "Present",
     },
     {
       id: 3,
       name: "Bob Johnson",
-      contact: "bob.johnson@ofppt-edu.ma",
+      contact: {
+        mobile: "+212 649-781587",
+        email: "fahd.ahsayni@ofppt-edu.ma",
+      },
       status: "Absent",
     },
     {
       id: 4,
       name: "Sarah Lee",
-      contact: "sarah.lee@ofppt-edu.ma",
+      contact: {
+        mobile: "+212 649-781587",
+        email: "fahd.ahsayni@ofppt-edu.ma",
+      },
       status: "Present",
     },
     // Add more data as needed
@@ -44,7 +56,7 @@ export default function TableAbsences() {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
-  const totalPages = 1;
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
   // Change page number
   const handlePageChange = (pageNumber) => {
@@ -71,14 +83,22 @@ export default function TableAbsences() {
               </div>
             </div>
             <div>
-              <Typography variant="h6" className="f">{item.name}</Typography>
+              <Typography variant="h6" className="text-gray-800">
+                {item.name}
+              </Typography>
               <div className="text-sm opacity-50">United States</div>
             </div>
           </div>
         </td>
-        <td>{item.contact}</td>
         <td>
-          <span className="py-1.5 px-5 rounded-xl  text-sm bg-red-50 text-red-700">
+          {item.contact.mobile}
+          <br />
+          <span className="badge badge-ghost badge-sm">
+            {item.contact.email}
+          </span>
+        </td>
+        <td>
+          <span className={`py-1.5 px-5 rounded-xl text-sm ${item.status === "Absent" ? "bg-red-50 text-red-700" : "bg-green-50 text-green-700"}`}>
             {item.status}
           </span>
         </td>
