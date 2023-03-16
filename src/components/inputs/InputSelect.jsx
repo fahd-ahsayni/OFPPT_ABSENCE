@@ -28,7 +28,7 @@ export default function InputSelect () {
 
   return (
     <Combobox as="div" value={selectedPerson} onChange={setSelectedPerson}>
-      <div className="relative mt-1 z-[999]">
+      <div className="relative mt-1">
         <Combobox.Input
           className="w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
           onChange={(event) => setQuery(event.target.value)}
