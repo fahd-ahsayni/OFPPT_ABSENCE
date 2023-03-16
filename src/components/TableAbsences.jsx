@@ -3,50 +3,13 @@ import Pagination from "./table/Pagination";
 import { Typography } from "@material-tailwind/react";
 import { FiSearch } from "react-icons/fi";
 
+import { dataTable as data } from "../data";
+
 export default function TableAbsences() {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(2);
+  const [itemsPerPage] = useState(10);
 
-  const data = [
-    {
-      id: 1,
-      name: "Fahd AHSAYNI",
-      contact: {
-        mobile: "+212 649-781587",
-        email: "fahd.ahsayni@ofppt-edu.ma",
-      },
-      status: "Absent",
-    },
-    {
-      id: 2,
-      name: "Meryem LFKIR",
-      contact: {
-        mobile: "+212 649-781587",
-        email: "fahd.ahsayni@ofppt-edu.ma",
-      },
-      status: "Present",
-    },
-    {
-      id: 3,
-      name: "Bob Johnson",
-      contact: {
-        mobile: "+212 649-781587",
-        email: "fahd.ahsayni@ofppt-edu.ma",
-      },
-      status: "Absent",
-    },
-    {
-      id: 4,
-      name: "Sarah Lee",
-      contact: {
-        mobile: "+212 649-781587",
-        email: "fahd.ahsayni@ofppt-edu.ma",
-      },
-      status: "Present",
-    },
-    // Add more data as needed
-  ];
 
   // Filter data based on search term
   const filteredData = data.filter((item) =>
@@ -117,15 +80,15 @@ export default function TableAbsences() {
   };
 
   return (
-    <div className="overflow-x-auto w-full">
+    <div className="overflow-x-auto w-full mt-6">
+      <Typography variant="h4" className="text-green-600">
+        Tableau d'Absence
+      </Typography>
+      <Typography variant="small" className="text-gray-600 mb-4">
+        Veuillez vérifier les informations d’absence avant d’enregistrer
+      </Typography>
       <div className="w-[350px] px-1 py-2 mb-2">
-        <label
-          htmlFor="search"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Trouver le stagiaire
-        </label>
-        <div className="relative mt-1 flex items-center">
+        <div className="relative flex items-center">
           <input
             type="text"
             placeholder="Rechercher"
@@ -142,7 +105,7 @@ export default function TableAbsences() {
           </div>
         </div>
       </div>
-        
+
       <table className="table w-full">
         <thead>
           <tr>
@@ -157,12 +120,12 @@ export default function TableAbsences() {
         <tbody>{renderTableRows()}</tbody>
       </table>
       <div className="w-full flex justify-end">
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            handlePageChange={handlePageChange}
-          />
-        </div>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          handlePageChange={handlePageChange}
+        />
+      </div>
     </div>
   );
 }

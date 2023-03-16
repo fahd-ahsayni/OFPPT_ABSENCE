@@ -1,23 +1,24 @@
 import React from "react";
 import InputSelect from "./inputs/InputSelect";
+import { Typography } from "@material-tailwind/react";
 
 const FormInsertion = () => {
   return (
     <div className="flex-1 xl:overflow-y-auto">
-      <h1 className="text-3xl font-bold tracking-tight text-blue-600">
+      <Typography variant="h2" className="text-blue-600">
         Insertion des stagiaires
-      </h1>
+      </Typography>
 
       <form className="divide-gray-200 mt-6 space-y-8 divide-y">
         <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-6 sm:gap-x-6 px-2">
           <div className="sm:col-span-6">
-            <h2 className="text-xl font-medium text-green-600">
+            <Typography variant="h4" className="text-green-600">
               Les informations personnelles
-            </h2>
-            <p className="mt-1 text-sm text-gray-500">
+            </Typography>
+            <Typography variant="small" className="text-gray-600">
               Veuillez entrer toutes les informations du stagiaire afin d'être
               ajouté a l'application
-            </p>
+            </Typography>
           </div>
 
           <div className="sm:col-span-3">
@@ -119,13 +120,13 @@ const FormInsertion = () => {
 
         <div className="grid grid-cols-1 gap-y-6 pt-8 sm:grid-cols-6 sm:gap-x-6 px-2">
           <div className="sm:col-span-6">
-            <h2 className="text-xl font-medium text-green-600">
+            <Typography variant="h4" className="text-green-600">
               Autre Informations
-            </h2>
-            <p className="mt-1 text-sm text-gray-500">
+            </Typography>
+            <Typography variant="small" className="text-gray-600">
               This information will be displayed publicly so be careful what you
-              share.
-            </p>
+              share
+            </Typography>
           </div>
 
           <div className="sm:col-span-3">
@@ -195,10 +196,10 @@ const FormInsertion = () => {
             />
           </div>
 
-          <p className="text-sm text-gray-500 sm:col-span-6">
+          <Typography variant="small" className="text-gray-600 sm:col-span-6">
             Veuillez vous assurer que les informations sont correctes avant
             d'enregistrer
-          </p>
+          </Typography>
         </div>
 
         <div className="flex justify-end pt-8">

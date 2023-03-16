@@ -1,4 +1,10 @@
-export default function Pagination({ currentPage, totalPages, handlePageChange }) {
+import { GrFormPrevious, GrFormNext } from "react-icons/gr";
+
+export default function Pagination({
+  currentPage,
+  totalPages,
+  handlePageChange,
+}) {
   const pageNumbers = [];
 
   for (let i = 1; i <= totalPages; i++) {
@@ -12,13 +18,13 @@ export default function Pagination({ currentPage, totalPages, handlePageChange }
         onClick={() => handlePageChange(currentPage - 1)}
         className="px-2 py-1 border rounded mr-2"
       >
-        Previous
+        <GrFormPrevious />
       </button>
       {pageNumbers.map((number) => (
         <button
           key={number}
           onClick={() => handlePageChange(number)}
-          className={`px-8 ${
+          className={`px-4 ${
             currentPage === number ? "bg-blue-500 text-white" : ""
           } mx-1 border rounded`}
         >
@@ -30,7 +36,7 @@ export default function Pagination({ currentPage, totalPages, handlePageChange }
         onClick={() => handlePageChange(currentPage + 1)}
         className="px-2 py-1 border rounded ml-2"
       >
-        Next
+        <GrFormNext />
       </button>
     </div>
   );
