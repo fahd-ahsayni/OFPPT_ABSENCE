@@ -2,33 +2,25 @@ import { useState } from 'react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import { Combobox } from '@headlessui/react'
 
-const people = [
-  { id: 1, name: 'DEVOWFS 201' },
-  { id: 2, name: 'DEVOWFS 202' },
-  { id: 3, name: 'DEVOWFS 203' },
-  { id: 4, name: 'DD 101' },
-  { id: 5, name: 'DD 102' },
-  { id: 6, name: 'DD 103' }
-]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function InputSelect () {
+export default function InputSelect ({data}) {
   const [query, setQuery] = useState('')
   const [selectedPerson, setSelectedPerson] = useState()
 
   const filteredPeople =
     query === ''
-      ? people
-      : people.filter((person) => {
+      ? data
+      : data.filter((person) => {
           return person.name.toLowerCase().includes(query.toLowerCase())
         })
 
   return (
     <Combobox as="div" value={selectedPerson} onChange={setSelectedPerson}>
-      <div className="relative mt-1">
+      <div className="relative mt-1 z-[999]">
         <Combobox.Input
           className="w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm"
           onChange={(event) => setQuery(event.target.value)}

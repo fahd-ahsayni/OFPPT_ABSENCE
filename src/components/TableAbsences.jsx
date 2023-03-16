@@ -3,8 +3,10 @@ import Pagination from "./table/Pagination";
 import { Typography } from "@material-tailwind/react";
 import { FiSearch } from "react-icons/fi";
 
-import { dataTable as data } from "../data";
+import { dataTable as data, groupe, modules, seance } from "../data";
 import InputSelect from "./inputs/InputSelect";
+
+
 
 export default function TableAbsences() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -118,19 +120,19 @@ export default function TableAbsences() {
             <Typography variant="small" className="text-gray-700">
               Groupe
             </Typography>
-            <InputSelect />
+            <InputSelect data={groupe} />
           </div>
           <div>
             <Typography variant="small" className="text-gray-700">
               Seance
             </Typography>
-            <InputSelect />
+            <InputSelect data={seance} />
           </div>
           <div>
             <Typography variant="small" className="text-gray-700">
               Module
             </Typography>
-            <InputSelect />
+            <InputSelect data={modules} />
           </div>
         </div>
 

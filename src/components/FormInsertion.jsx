@@ -1,6 +1,7 @@
 import React from "react";
 import InputSelect from "./inputs/InputSelect";
 import { Typography } from "@material-tailwind/react";
+import { groupe } from "../data";
 
 const FormInsertion = () => {
   return (
@@ -81,7 +82,7 @@ const FormInsertion = () => {
             >
               Choisissez le groupe
             </label>
-            <InputSelect />
+            <InputSelect data={groupe} />
           </div>
 
           <div className="sm:col-span-6">
