@@ -4,12 +4,14 @@ import { Typography } from "@material-tailwind/react";
 import { FiSearch } from "react-icons/fi";
 
 import { dataTable as data } from "../data";
+import InputSelect from "./inputs/InputSelect";
 
 export default function TableAbsences() {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
 
+  // const data =""
 
   // Filter data based on search term
   const filteredData = data.filter((item) =>
@@ -80,52 +82,79 @@ export default function TableAbsences() {
   };
 
   return (
-    <div className="overflow-x-auto w-full mt-6">
-      <Typography variant="h4" className="text-green-600">
-        Tableau d'Absence
-      </Typography>
-      <Typography variant="small" className="text-gray-600 mb-4">
-        Veuillez vérifier les informations d’absence avant d’enregistrer
-      </Typography>
-      <div className="w-[350px] px-1 py-2 mb-2">
-        <div className="relative flex items-center">
-          <input
-            type="text"
-            placeholder="Rechercher"
-            className="block w-full rounded-md border-gray-300 pr-12 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-            value={searchTerm}
-            name="search"
-            id="search"
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
-            <kbd className="inline-flex items-center rounded border border-gray-200 px-2 font-sans text-sm font-medium text-gray-400">
-              <FiSearch />
-            </kbd>
+    <>
+      <div className="flex justify-between items-center">
+        <Typography variant="h2" className="text-blue-600">
+          Enregistrement des Absences
+        </Typography>
+        <div className="w-[350px] px-2 py-2 mb-2">
+          <div className="relative flex items-center">
+            <input
+              type="text"
+              placeholder="Rechercher"
+              className="block w-full rounded-md border-gray-300 pr-12 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+              value={searchTerm}
+              name="search"
+              id="search"
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
+              <kbd className="inline-flex items-center rounded border border-gray-200 px-2 font-sans text-sm font-medium text-gray-400">
+                <FiSearch />
+              </kbd>
+            </div>
           </div>
         </div>
       </div>
+      <div className="overflow-x-auto w-full mt-6">
+        <Typography variant="h4" className="text-green-600">
+          Tableau d'Absence
+        </Typography>
+        <Typography variant="small" className="text-gray-600 mb-4">
+          Veuillez vérifier les informations d’absence avant d’enregistrer
+        </Typography>
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 px-1 mb-5">
+          <div>
+            <Typography variant="small" className="text-gray-700">
+              Groupe
+            </Typography>
+            <InputSelect />
+          </div>
+          <div>
+            <Typography variant="small" className="text-gray-700">
+              Seance
+            </Typography>
+            <InputSelect />
+          </div>
+          <div>
+            <Typography variant="small" className="text-gray-700">
+              Module
+            </Typography>
+            <InputSelect />
+          </div>
+        </div>
 
-      <table className="table w-full">
-        <thead>
-          <tr>
-            <th></th>
-            <th></th>
-            <th>Nome et Prénom</th>
-            <th>Contact</th>
-            <th>Statut</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>{renderTableRows()}</tbody>
-      </table>
-      <div className="w-full flex justify-end">
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          handlePageChange={handlePageChange}
-        />
+        <table className="table w-full">
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+              <th>Nome et Prénom</th>
+              <th>Contact</th>
+              <th>Statut</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>{renderTableRows()}</tbody>
+        </table>
+        <div className="w-full flex justify-end">
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            handlePageChange={handlePageChange}
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
