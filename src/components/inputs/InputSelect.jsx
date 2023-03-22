@@ -9,7 +9,7 @@ function classNames(...classes) {
 
 export default function InputSelect ({data}) {
   const [query, setQuery] = useState('')
-  const [selectedPerson, setSelectedPerson] = useState()
+  const [selectedPerson, setSelectedPerson] = useState(data[0])
 
   const filteredPeople =
     query === ''

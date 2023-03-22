@@ -37,29 +37,27 @@ export default function Charts() {
     <>
       <div className="app">
         <div className="row">
-          <div className="mixed-chart">
+          <div className="mixed-chart p-24">
             <Chart
               options={state.options}
               series={state.series}
               type="bar"
-              width="900"
             />
           </div>
           <div
-            className="chart"
-            style={{ display: "flex", alignItems: "center" }}
+            className="chart flex items-center justify-center"
           >
             <Chart
               options={state.options}
               series={state.series}
               type="area"
-              width="400"
+              width="500"
             />
             <Chart
               options={state.options}
               series={state.series}
               type="line"
-              width="400"
+              width="500"
             />
           </div>
         </div>
