@@ -5,12 +5,10 @@ import "./global.css";
 
 import { ThemeProvider } from "@material-tailwind/react";
 
-import { legacy_createStore as createStore } from "redux";
 import { Provider } from "react-redux";
-import reducer from "./config/reducer";
 import { BrowserRouter } from "react-router-dom";
 
-const store = createStore(reducer);
+import store from "./config/store";
 
 const element = document.getElementById("root");
 const root = createRoot(element);

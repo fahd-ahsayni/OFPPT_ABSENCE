@@ -19,7 +19,7 @@ export const dataTable = [
   },
   {
     id: 3,
-    name: "Bob Johnson",
+    name: "Ali KAMALI",
     contact: {
       mobile: "+212 649-781587",
       email: "fahd.ahsayni@ofppt-edu.ma",
@@ -28,7 +28,7 @@ export const dataTable = [
   },
   {
     id: 4,
-    name: "Sarah Lee",
+    name: "Khadija FAHIMI",
     contact: {
       mobile: "+212 649-781587",
       email: "fahd.ahsayni@ofppt-edu.ma",

@@ -1,32 +1,46 @@
-import { Fragment, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
-import {
-  Bars3Icon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline'
-import logo from "../assets/logo.png"
-import { useDispatch, useSelector } from 'react-redux'
-import { selectedLink } from '../config/ActionsCreator'
-import { Link } from 'react-router-dom'
+import { Fragment, useState } from "react";
+import { Dialog, Transition } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import logo from "../assets/logo.png";
+import { useSelector } from "react-redux";
 
+import {
+  CalendarIcon,
+  HomeIcon,
+  MagnifyingGlassCircleIcon,
+  MapIcon,
+  MegaphoneIcon,
+  UserGroupIcon,
+} from "@heroicons/react/24/outline";
+
+import { Link } from "react-router-dom";
+
+const navigation = [
+  { name: "Dashboard", href: "/", icon: HomeIcon },
+  { name: "Insertion", href: "/Insertion", icon: UserGroupIcon },
+  { name: "Absences", href: "/Absences", icon: MagnifyingGlassCircleIcon },
+  { name: "Directory", href: "#", icon: CalendarIcon },
+  { name: "Announcements", href: "#", icon: MegaphoneIcon },
+  { name: "Office Map", href: "#", icon: MapIcon },
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
-export default function Dashbord({children}) {
-  const [sidebarOpen, setSidebarOpen] = useState(false)
-  const navigation = useSelector(state => state.navigation)
-  const currentLink = useSelector(state => state.selectedLink)
-  const currentColor = useSelector(state => state.currentColor)
-  const dispatch = useDispatch()
+export default function Dashbord({ children }) {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [currentLink, setCurrentLink] = useState("Dashboard");
 
   return (
     <>
-
       <div className="flex h-full">
         <Transition.Root show={sidebarOpen} as={Fragment}>
-          <Dialog as="div" className="relative z-40 lg:hidden" onClose={setSidebarOpen}>
+          <Dialog
+            as="div"
+            className="relative z-40 lg:hidden"
+            onClose={setSidebarOpen}
+          >
             <Transition.Child
               as={Fragment}
               enter="transition-opacity ease-linear duration-300"
@@ -66,7 +80,10 @@ export default function Dashbord({children}) {
                         onClick={() => setSidebarOpen(false)}
                       >
                         <span className="sr-only">Close sidebar</span>
-                        <XMarkIcon className="h-6 w-6 text-white" aria-hidden="true" />
+                        <XMarkIcon
+                          className="h-6 w-6 text-white"
+                          aria-hidden="true"
+                        />
                       </button>
                     </div>
                   </Transition.Child>
@@ -77,27 +94,30 @@ export default function Dashbord({children}) {
                         src={logo}
                         alt="Your Company"
                       />
-                      <span className='text-xl font-bold ml-2 tracking-wide text-gray-900'>ABSENCE</span>
+                      <span className="text-xl font-bold ml-2 tracking-wide text-gray-900">
+                        ABSENCE
+                      </span>
                     </div>
                     <nav aria-label="Sidebar" className="mt-5">
                       <div className="space-y-1 px-2">
                         {navigation.map((item, index) => (
                           <Link
-                          key={index}
-                            onClick={() => dispatch(selectedLink(item.name))}
+                            key={index}
+                            onClick={() => setCurrentLink(item.name)}
                             to={item.href}
-                            href={item.href}
                             className={classNames(
                               item.name === currentLink
-                                ? 'bg-blue-600 text-gray-100'
-                                : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                              'group flex items-center px-2 py-2 text-base font-medium rounded-md'
+                                ? "bg-blue-600 text-gray-100"
+                                : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
+                              "group flex items-center px-2 py-2 text-base font-medium rounded-md"
                             )}
                           >
                             <item.icon
                               className={classNames(
-                                item.name === currentLink ? 'text-gray-50' : 'text-gray-400 group-hover:text-gray-500',
-                                'mr-4 h-6 w-6'
+                                item.name === currentLink
+                                  ? "text-gray-50"
+                                  : "text-gray-400 group-hover:text-gray-500",
+                                "mr-4 h-6 w-6"
                               )}
                               aria-hidden="true"
                             />
@@ -121,7 +141,9 @@ export default function Dashbord({children}) {
                           <p className="text-base font-medium text-gray-700 group-hover:text-gray-900">
                             Meryem LFKIR
                           </p>
-                          <p className="text-sm font-medium text-gray-500 group-hover:text-gray-700">View profile</p>
+                          <p className="text-sm font-medium text-gray-500 group-hover:text-gray-700">
+                            View profile
+                          </p>
                         </div>
                       </div>
                     </a>
@@ -142,31 +164,31 @@ export default function Dashbord({children}) {
             <div className="flex min-h-0 flex-1 flex-col border-r border-gray-200 bg-gray-100">
               <div className="flex flex-1 flex-col overflow-y-auto pt-5 pb-4">
                 <div className="flex flex-shrink-0 items-center px-4">
-                  <img
-                    className="h-7 w-auto"
-                    src={logo}
-                    alt="Your Company"
-                  />
-                  <span className='text-gray-900 ml-2 font-bold text-2xl tracking-wide'>ABSENCE</span>
+                  <img className="h-7 w-auto" src={logo} alt="Your Company" />
+                  <span className="text-gray-900 ml-2 font-bold text-2xl tracking-wide">
+                    ABSENCE
+                  </span>
                 </div>
                 <nav className="mt-5 flex-1" aria-label="Sidebar">
                   <div className="space-y-1 px-2">
                     {navigation.map((item, index) => (
                       <Link
-                      onClick={() => dispatch(selectedLink(item.name))}
-                      to={item.href}
-                      className={classNames(
-                        item.name === currentLink
-                        ? 'bg-blue-600 text-gray-100'
-                        : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                        'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
+                        onClick={() => setCurrentLink(item.name)}
+                        to={item.href}
+                        className={classNames(
+                          item.name === currentLink
+                            ? "bg-blue-600 text-gray-100"
+                            : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
+                          "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
                         )}
                         key={index}
                       >
                         <item.icon
                           className={classNames(
-                            item.name === currentLink ? 'text-gray-50' : 'text-gray-400 group-hover:text-gray-500',
-                            'mr-3 h-6 w-6'
+                            item.name === currentLink
+                              ? "text-gray-50"
+                              : "text-gray-400 group-hover:text-gray-500",
+                            "mr-3 h-6 w-6"
                           )}
                           aria-hidden="true"
                         />
@@ -187,8 +209,12 @@ export default function Dashbord({children}) {
                       />
                     </div>
                     <div className="ml-3">
-                      <p className="text-sm font-medium text-gray-700 group-hover:text-gray-900">Meryem LFKIR</p>
-                      <p className="text-xs font-medium text-gray-500 group-hover:text-gray-700">View profile</p>
+                      <p className="text-sm font-medium text-gray-700 group-hover:text-gray-900">
+                        Meryem LFKIR
+                      </p>
+                      <p className="text-xs font-medium text-gray-500 group-hover:text-gray-700">
+                        View profile
+                      </p>
                     </div>
                   </div>
                 </a>
@@ -200,11 +226,7 @@ export default function Dashbord({children}) {
           <div className="lg:hidden">
             <div className="flex items-center justify-between border-b border-gray-200 bg-gray-50 px-4 py-1.5">
               <div>
-                <img
-                  className="h-8 w-auto"
-                  src={logo}
-                  alt="Your Company"
-                />
+                <img className="h-8 w-auto" src={logo} alt="Your Company" />
               </div>
               <div>
                 <button
@@ -222,7 +244,7 @@ export default function Dashbord({children}) {
             <main className="relative z-0 flex-1 overflow-y-auto focus:outline-none xl:order-last">
               {/* Start main area*/}
               <div className="absolute inset-0 py-6 px-4 sm:px-6 lg:px-8">
-                {children}
+                <div className="p-6 bg-white rounded-lg h-full overflow-auto shadow-lg">{children}</div>
               </div>
               {/* End main area */}
             </main>
@@ -230,5 +252,5 @@ export default function Dashbord({children}) {
         </div>
       </div>
     </>
-  )
+  );
 }

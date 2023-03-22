@@ -6,8 +6,6 @@ import { FiSearch } from "react-icons/fi";
 import { dataTable as data, groupe, modules, seance } from "../data";
 import InputSelect from "./inputs/InputSelect";
 
-
-
 export default function TableAbsences() {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -54,7 +52,7 @@ export default function TableAbsences() {
               <Typography variant="h6" className="text-gray-800">
                 {item.name}
               </Typography>
-              <div className="text-sm opacity-50">United States</div>
+              <div className="text-sm opacity-50">Maroc</div>
             </div>
           </div>
         </td>
@@ -89,7 +87,7 @@ export default function TableAbsences() {
         <Typography variant="h2" className="text-blue-600">
           Enregistrement des Absences
         </Typography>
-        <div className="w-[350px] px-2 py-2 mb-2">
+        <div className="w-[350px]">
           <div className="relative flex items-center">
             <input
               type="text"
@@ -155,6 +153,14 @@ export default function TableAbsences() {
             totalPages={totalPages}
             handlePageChange={handlePageChange}
           />
+        </div>
+        <div className="flex items-center mt-8 justify-end">
+          <button
+            type="submit"
+            className="ml-3 inline-flex justify-center rounded-md border border-transparent bg-blue-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          >
+            Enregistrer
+          </button>
         </div>
       </div>
     </>
