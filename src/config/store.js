@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import navigationSlice from "./slices/navigation-slice";
+import stagiaireReducer from "./slices/stagiaireSlice";
 
 const store = configureStore({
-  reducer: {
-    navigationSlice,
+    reducer: {
+      stagiaire: stagiaireReducer,
   },
 });
 

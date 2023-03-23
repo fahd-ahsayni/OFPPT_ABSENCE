@@ -1,6 +1,6 @@
 export const dataTable = [
   {
-    id: 1,
+    id: 1999060600082,
     name: "Fahd AHSAYNI",
     contact: {
       mobile: "+212 649-781587",
@@ -9,7 +9,7 @@ export const dataTable = [
     status: "Absent",
   },
   {
-    id: 2,
+    id: 2003060600082,
     name: "Meryem LFKIR",
     contact: {
       mobile: "+212 649-781587",
@@ -18,7 +18,7 @@ export const dataTable = [
     status: "Present",
   },
   {
-    id: 3,
+    id: 2001060600082,
     name: "Ali KAMALI",
     contact: {
       mobile: "+212 649-781587",
@@ -27,7 +27,7 @@ export const dataTable = [
     status: "Absent",
   },
   {
-    id: 4,
+    id: 2000060600082,
     name: "Khadija FAHIMI",
     contact: {
       mobile: "+212 649-781587",
@@ -60,4 +60,6 @@ export const seance = [
     { id: 2, name: '11:00 - 13:30' },
     { id: 3, name: '13:30 - 16:00 ' },
     { id: 4, name: '16:00 - 18:30' },
+    { id: 4, name: '08:30 - 13:30' },
+    { id: 4, name: '13:30 - 18:30' },
 ]

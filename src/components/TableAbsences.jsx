@@ -5,13 +5,14 @@ import { FiSearch } from "react-icons/fi";
 
 import { dataTable as data, groupe, modules, seance } from "../data";
 import InputSelect from "./inputs/InputSelect";
+import Modal from "../global/Modal";
 
 export default function TableAbsences() {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
 
-  // const data =""
+  const [open, setOpen] = useState(false);
 
   // Filter data based on search term
   const filteredData = data.filter((item) =>
@@ -37,17 +38,9 @@ export default function TableAbsences() {
             <input type="checkbox" className="checkbox" />
           </label>
         </td>
-        <td>{item.id}</td>
+        <td className="text-gray-800">{item.id}</td>
         <td>
           <div className="flex items-center space-x-3">
-            <div className="avatar">
-              <div className="mask mask-squircle w-12 h-12">
-                <img
-                  src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80"
-                  alt="Avatar Tailwind CSS Component"
-                />
-              </div>
-            </div>
             <div>
               <Typography variant="h6" className="text-gray-800">
                 {item.name}
@@ -75,7 +68,14 @@ export default function TableAbsences() {
           </span>
         </td>
         <td>
-          <button>details</button>
+          {item.status === "Absent" ? (
+            <>
+              <label htmlFor="my-modal" className="text-gray-900 cursor-pointer">
+                Absence justifiée
+              </label>
+              <Modal />
+            </>
+          ) : null}
         </td>
       </tr>
     ));
@@ -138,7 +138,7 @@ export default function TableAbsences() {
           <thead>
             <tr>
               <th></th>
-              <th></th>
+              <th>Matricule d'Etudiant</th>
               <th>Nome et Prénom</th>
               <th>Contact</th>
               <th>Statut</th>
