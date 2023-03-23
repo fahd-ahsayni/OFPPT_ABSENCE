@@ -244,7 +244,7 @@ export default function Dashbord({ children }) {
             <main className="relative z-0 flex-1 overflow-y-auto focus:outline-none xl:order-last">
               {/* Start main area*/}
               <div className="absolute inset-0 py-6 px-4 sm:px-6 lg:px-8">
-                <div className="p-6 bg-white rounded-lg h-full overflow-auto shadow-lg">{children}</div>
+                <div className="p-6 bg-white rounded-lg h-full overflow-auto shadow-lg scrollbar scrollbar-thumb-gray-600 scrollbar-track-gray-100">{children}</div>
               </div>
               {/* End main area */}
             </main>

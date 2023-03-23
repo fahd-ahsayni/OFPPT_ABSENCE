@@ -4,8 +4,8 @@ export default function Modal() {
   return (
     <>
       <input type="checkbox" id="my-modal" className="modal-toggle" />
-      <div className="modal">
-        <div className="modal-box">
+      <div className="modal scrollbar">
+        <div className="modal-box scrollbar scrollbar-thumb-gray-600 scrollbar-track-gray-100">
           <Billet />
           <div className="modal-action">
             <label

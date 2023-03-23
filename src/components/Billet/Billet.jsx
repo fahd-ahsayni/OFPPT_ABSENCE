@@ -3,7 +3,7 @@ import Divider from "./Divider";
 
 export default function Billet() {
   return (
-    <>
+    <div className="scrollbar scrollbar-thumb-gray-600 scrollbar-track-gray-100">
       <div>
         <div className="w-full flex justify-between">
           <Typography variant="small">OFPPT / DRPS / ISGI LAAYOUNE</Typography>
@@ -79,14 +79,17 @@ export default function Billet() {
           </div>
         </div>
       </div>
-      <div className="mt-5 sm:mt-6">
-        <button
-          type="button"
-          className="inline-flex w-full justify-center rounded-md border border-transparent bg-blue-700 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:text-sm"
-        >
-          Sauvegarder
-        </button>
+      <div className="relative my-5">
+        <div className="w-full border-t border-gray-300" />
+        <div className="mt-10 sm:mt-6">
+          <button
+            type="button"
+            className="inline-flex w-full justify-center rounded-md border border-transparent bg-blue-700 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:text-sm"
+          >
+            Sauvegarder
+          </button>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
